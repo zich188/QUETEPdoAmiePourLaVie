@@ -8,6 +8,8 @@ $pdo= new PDO(DSN, USER,PASS);
     {
         $lastname = trim($_POST['lastname']);
         $firstname = trim($_POST['firstname']);
+        $lastname = htmlentities($_POST['lastname']);
+        $firstname = htmlentities($_POST['firstname']);
 
         $query="INSERT INTO friend (firstname , lastname) VALUES (:firstname, :lastname)";
         $statement = $pdo->prepare($query);
